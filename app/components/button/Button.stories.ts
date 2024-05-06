@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 
-import { Button } from './Button';
+import { Button } from "./Button";
 
 const meta = {
   component: Button,
@@ -14,35 +14,34 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Button',
+    children: "Button",
   },
 };
 
 export const Destructive: Story = {
   args: {
-    variant: 'destructive',
-    children: 'Button',
+    variant: "destructive",
+    children: "Button",
   },
 };
 
-export const Small : Story = {
+export const Small: Story = {
   args: {
-    children: 'Button',
-    size: 'sm'
+    children: "Button",
+    size: "sm",
   },
 };
 
-export const Large : Story = {
+export const Large: Story = {
   args: {
-    children: 'Button',
-    size: 'lg'
+    children: "Button",
+    size: "lg",
   },
 };
 
-export const Icon : Story = {
+export const Icon: Story = {
   args: {
-    children: 'i',
-    size: 'icon'
+    children: "i",
+    size: "icon",
   },
 };
-
