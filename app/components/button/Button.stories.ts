@@ -26,6 +26,7 @@ const meta = {
     },
   },
   parameters: {
+    // https://storybook.js.org/docs/writing-tests/accessibility-testing
     a11y: {
       config: {
         // デザイン都合なので許容する

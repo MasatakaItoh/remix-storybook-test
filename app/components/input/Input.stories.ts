@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn, userEvent, within } from "@storybook/test";
+import { expect, fn, userEvent, within } from "@storybook/test";
 
 import { Input } from "./Input";
+
+const mockFn = fn();
 
 const meta = {
   component: Input,
   // https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
-  args: { onChange: fn() },
+  args: { onChange: mockFn },
   parameters: {
     a11y: {
       config: {
@@ -30,6 +32,10 @@ export const Typed: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const input = canvas.getByRole("textbox");
-    await userEvent.type(input, "typed");
+    const value = "typed";
+    await userEvent.type(input, value);
+    // https://storybook.js.org/docs/writing-tests/test-runner
+    await expect(input).toHaveValue(value);
+    await expect(mockFn).toHaveBeenCalledTimes(value.length);
   },
 };
