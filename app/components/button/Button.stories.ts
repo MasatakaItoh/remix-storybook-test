@@ -7,6 +7,24 @@ const meta = {
   component: Button,
   // https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
   args: { onClick: fn() },
+  // https://storybook.js.org/docs/essentials/controls#choosing-the-control-type
+  argTypes: {
+    variant: {
+      control: { type: "radio" },
+      options: [
+        "default",
+        "destructive",
+        "outline",
+        "secondary",
+        "ghost",
+        "link",
+      ],
+    },
+    size: {
+      control: { type: "radio" },
+      options: ["default", "sm", "lg", "icon"],
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -18,30 +36,16 @@ export const Default: Story = {
   },
 };
 
-export const Destructive: Story = {
+export const Color: Story = {
   args: {
-    variant: "destructive",
     children: "Button",
+    variant: "destructive",
   },
 };
 
-export const Small: Story = {
+export const Size: Story = {
   args: {
     children: "Button",
     size: "sm",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    children: "Button",
-    size: "lg",
-  },
-};
-
-export const Icon: Story = {
-  args: {
-    children: "i",
-    size: "icon",
   },
 };

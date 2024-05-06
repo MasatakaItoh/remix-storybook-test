@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { createRemixStub } from "@remix-run/testing";
 
-import '../app/tailwind.css';
+import "../app/tailwind.css";
 
 const preview: Preview = {
   parameters: {
@@ -11,18 +11,18 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    layout: 'centered',
-    tags: ['autodocs'],
+    layout: "centered",
+    tags: ["autodocs"],
   },
   decorators: [
-    Story => {
+    (Story) => {
       const Stub = createRemixStub([
         {
-          path: '/',
+          path: "/",
           Component: () => <Story />,
         },
-      ])
-      return <Stub />
+      ]);
+      return <Stub />;
     },
   ],
 };
