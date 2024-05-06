@@ -25,6 +25,14 @@ const meta = {
       options: ["default", "sm", "lg", "icon"],
     },
   },
+  parameters: {
+    a11y: {
+      config: {
+        // デザイン都合なので許容する
+        rules: [{ id: "color-contrast", enabled: false }],
+      },
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;

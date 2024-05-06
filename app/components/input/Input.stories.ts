@@ -7,6 +7,14 @@ const meta = {
   component: Input,
   // https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
   args: { onChange: fn() },
+  parameters: {
+    a11y: {
+      config: {
+        // Labelコンポーネントと組みあわせて使用するため問題なし
+        rules: [{ id: "label", enabled: false }],
+      },
+    },
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;
